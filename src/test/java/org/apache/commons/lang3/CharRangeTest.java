@@ -160,26 +160,35 @@ public class CharRangeTest extends AbstractLangTest {
     }
 
     @Test
-    public void testContains_Char() {
+    public void testContains_CharEx1() {
         CharRange range = CharRange.is('c');
         assertFalse(range.contains('b'));
         assertTrue(range.contains('c'));
         assertFalse(range.contains('d'));
         assertFalse(range.contains('e'));
+    }
 
-        range = CharRange.isIn('c', 'd');
+    @Test
+    public void testContains_CharEx2() {
+        CharRange range = CharRange.isIn('c', 'd');
         assertFalse(range.contains('b'));
         assertTrue(range.contains('c'));
         assertTrue(range.contains('d'));
         assertFalse(range.contains('e'));
+    }
 
-        range = CharRange.isIn('d', 'c');
+    @Test
+    public void testContains_CharEx3() {
+        CharRange range = CharRange.isIn('d', 'c');
         assertFalse(range.contains('b'));
         assertTrue(range.contains('c'));
         assertTrue(range.contains('d'));
         assertFalse(range.contains('e'));
+    }
 
-        range = CharRange.isNotIn('c', 'd');
+    @Test
+    public void testContains_CharEx4() {
+        CharRange range = CharRange.isNotIn('c', 'd');
         assertTrue(range.contains('b'));
         assertFalse(range.contains('c'));
         assertFalse(range.contains('d'));

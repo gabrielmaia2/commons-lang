@@ -32,6 +32,9 @@ import org.junit.jupiter.api.Test;
  * Unit tests for {@link org.apache.commons.lang3.builder.ToStringBuilder}.
  */
 public class ToStringBuilderTest extends AbstractLangTest {
+	private ToStringBuilder defaultBuilder1 = new ToStringBuilder(null);
+	private ToStringBuilder defaultBuilder2 = new ToStringBuilder(null, null);
+	private ToStringBuilder defaultBuilder3 = new ToStringBuilder(null, null, null);
 
     // See LANG-1337 for more.
     private static final int ARRAYLIST_INITIAL_CAPACITY = 10;
@@ -40,20 +43,17 @@ public class ToStringBuilderTest extends AbstractLangTest {
 
     @Test
     public void testConstructorEx1() {
-        assertEquals("<null>", new ToStringBuilder(null).toString());
+        assertEquals("<null>", defaultBuilder1.toString());
     }
 
     @Test
     public void testConstructorEx2() {
-        assertEquals("<null>", new ToStringBuilder(null, null).toString());
-        new ToStringBuilder(this.base, null).toString();
+        assertEquals("<null>", defaultBuilder2.toString());
     }
 
     @Test
     public void testConstructorEx3() {
-        assertEquals("<null>", new ToStringBuilder(null, null, null).toString());
-        new ToStringBuilder(this.base, null, null).toString();
-        new ToStringBuilder(this.base, ToStringStyle.DEFAULT_STYLE, null).toString();
+        assertEquals("<null>", defaultBuilder3.toString());
     }
 
     @Test

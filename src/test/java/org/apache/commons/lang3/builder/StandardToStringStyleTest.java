@@ -33,11 +33,11 @@ import org.junit.jupiter.api.Test;
  * Unit tests {@link org.apache.commons.lang3.builder.ToStringStyle}.
  */
 public class StandardToStringStyleTest extends AbstractLangTest {
-
     private final Integer base = Integer.valueOf(5);
     private final String baseStr = "Integer";
 
     private static final StandardToStringStyle STYLE = new StandardToStringStyle();
+	private final StandardToStringStyle defaultStyle = new StandardToStringStyle();
 
     static {
         STYLE.setUseShortClassName(true);
@@ -177,12 +177,12 @@ public class StandardToStringStyleTest extends AbstractLangTest {
 
     @Test
     public void testDefaultValueOfUseClassName() {
-        assertTrue((new StandardToStringStyle()).isUseClassName());
+        assertTrue(defaultStyle.isUseClassName());
     }
 
     @Test
     public void testDefaultValueOfUseFieldNames() {
-        assertTrue((new StandardToStringStyle()).isUseFieldNames());
+        assertTrue(defaultStyle.isUseFieldNames());
     }
 
     @Test
